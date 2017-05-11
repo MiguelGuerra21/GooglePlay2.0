@@ -54,16 +54,24 @@ public class GooglePlay
     
     public double comprar(String emailComprador ,String idProducto){
         double precioMostrar = -1;
-        for(Usuario usuario : usuarios){
-            if(usuario != null && usuario.getNombreCuenta().equals(emailComprador)){
-                for(Producto producto : productos){
-                    if(producto != null && producto.getNombre().equals(idProducto)){
-                        usuario.comprarProducto(producto);
-                        precioMostrar = producto.getPrecio();
-                        producto.comprado();
+        int contador1 = 0;
+        int contador2 = 0;
+        boolean encontrado1 = false;
+        boolean encontrado2 = false;
+        while(contador1 < usuarios.length && encontrado1 == false){
+            if(usuarios[contador1] != null && usuarios[contador1].getNombreCuenta().equals(emailComprador)){
+                while(contador2 < productos.length && encontrado2 == false){
+                    if(productos[contador2] != null && productos[contador2].getNombre().equals(idProducto)){
+                        usuarios[contador1].comprarProducto(productos[contador2]);
+                        precioMostrar = productos[contador2].getPrecio();
+                        productos[contador2].comprado();
+                        encontrado2 = true;
                     }
+                    contador2++;
                 }
+                encontrado1 = true;
             }
+            contador1++;
         }
         return precioMostrar;
     }
