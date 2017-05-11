@@ -51,4 +51,20 @@ public class GooglePlay
         }
         return productosTotales;
     }
+    
+    public double comprar(String emailComprador ,String idProducto){
+        double precioMostrar = -1;
+        for(Usuario usuario : usuarios){
+            if(usuario != null && usuario.getNombreCuenta().equals(emailComprador)){
+                for(Producto producto : productos){
+                    if(producto != null && producto.getNombre().equals(idProducto)){
+                        usuario.comprarProducto(producto);
+                        precioMostrar = producto.getPrecio();
+                        producto.comprado();
+                    }
+                }
+            }
+        }
+        return precioMostrar;
+    }
 }

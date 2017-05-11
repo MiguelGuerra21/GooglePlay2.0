@@ -47,4 +47,29 @@ public class Aplicacion extends Producto
         }
         return categoriaAMostrar;
     }
+    
+    public double getPrecio(){
+        double precioAMostrar = 0.99;
+        if(vecesVendido >= 2){
+            switch(categoria){
+                case JUEGOS:
+                    precioAMostrar = 5.00;
+                    break;
+                case PRODUCTIVIDAD:
+                    precioAMostrar = 10.00;
+                    break;
+                case COMUNICACIONES:
+                    precioAMostrar = 2.00;
+                    break;
+                case MULTIMEDIA:
+                    precioAMostrar = 2.00;
+                    break;
+            }
+        }
+        return precioAMostrar;
+    }
+    
+    public void comprado(){
+        vecesVendido++;
+    }
 }

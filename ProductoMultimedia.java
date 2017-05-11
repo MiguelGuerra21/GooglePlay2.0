@@ -20,7 +20,13 @@ public abstract class ProductoMultimedia extends Producto
         anioSalida = anio;
     }
     
-    public abstract String getTitulo();
+    public abstract String getNombre();
     
     public abstract int getAno();
+    
+    public abstract String getTitulo();
+    
+    public abstract double getPrecio();
+    
+    public abstract void comprado();
 }

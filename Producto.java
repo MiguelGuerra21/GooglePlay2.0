@@ -5,10 +5,10 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Producto
+public abstract class Producto
 {
-    private int vecesVendido;
-
+    protected int vecesVendido;
+    
     /**
      * Constructor for objects of class Producto
      */
@@ -16,4 +16,10 @@ public class Producto
     {
         vecesVendido = 0;
     }
+    
+    public abstract String getNombre();
+    
+    public abstract double getPrecio();
+    
+    public abstract void comprado();
 }

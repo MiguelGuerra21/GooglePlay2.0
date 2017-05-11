@@ -20,7 +20,7 @@ public class Pelicula extends ProductoMultimedia
         this.calidad = calidad;
     }
     
-    public String getTitulo(){
+    public String getNombre(){
         return titulo;
     }
     
@@ -30,6 +30,10 @@ public class Pelicula extends ProductoMultimedia
     
     public int getDuracion(){
         return duracion;
+    }
+    
+    public String getTitulo(){
+        return titulo;
     }
     
     public String getCalidad(){
@@ -43,5 +47,24 @@ public class Pelicula extends ProductoMultimedia
                 break;
         }
         return calidadAMostrar;
+    }
+    
+    public double getPrecio(){
+        double precioAMostrar = -1;
+        if(getCalidad().equals("FullHD")){
+            precioAMostrar = 10;
+        }
+        else{
+            precioAMostrar = 5;
+        }
+        if(anioSalida < 2000){
+            precioAMostrar = precioAMostrar/50;
+        }
+        vecesVendido++;
+        return precioAMostrar;
+    }
+    
+    public void comprado(){
+        vecesVendido++;
     }
 }

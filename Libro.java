@@ -20,7 +20,7 @@ public class Libro extends ProductoMultimedia
         this.ficcion = ficcion;
     }
     
-    public String getTitulo(){
+    public String getNombre(){
         return titulo;
     }
     
@@ -34,5 +34,19 @@ public class Libro extends ProductoMultimedia
     
     public boolean getFiccion(){
         return ficcion;
+    }
+    
+    public String getTitulo(){
+        return titulo;
+    }
+    
+    public double getPrecio(){
+        double precioAMostrar = (((int)(numeroPaginas/100))*(anioSalida -2010));
+        vecesVendido++;
+        return precioAMostrar;
+    }
+    
+    public void comprado(){
+        vecesVendido++;
     }
 }
